@@ -1,0 +1,66 @@
+package com.example.todo_en_uno;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "tipo")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Mago.class, name = "mago"),
+        @JsonSubTypes.Type(value = Guerrero.class, name = "guerrero")
+})
+
+public class Personaje {
+    private String nombre;
+    private int vida;
+    private int ataque;
+    private int defensa;
+
+    public Personaje(String nombre, int vida, int ataque, int defensa) {
+        this.nombre = nombre;
+        this.vida = vida;
+        this.ataque = ataque;
+        this.defensa = defensa;
+    }
+
+    public Personaje() {
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
+
+    public int getDefensa() {
+        return defensa;
+    }
+
+    public void setDefensa(int defensa) {
+        this.defensa = defensa;
+    }
+
+    @Override
+    public String toString() {
+        return "nombre= " + nombre + ", vida= " + vida + ", ataque= " + ataque + ", defensa= " + defensa;
+    }
+    
+
+
+}
